@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Juego Javascript</title>
+
+<script language="javascript">
+
+function jugar(usuario){
+
+    let opciones =
+    ["Piedra","Papel","Tijera"];
+
+    let maquina =
+    opciones[Math.floor(Math.random()*3)];
+
+    let resultado = "";
+
+    if(usuario == maquina){
+
+        resultado = "EMPATE";
+
+    }
+
+    else if(
+        (usuario == "Piedra" && maquina == "Tijera") ||
+        (usuario == "Papel" && maquina == "Piedra") ||
+        (usuario == "Tijera" && maquina == "Papel")
+    ){
+
+        resultado = "GANASTE";
+
+    }
+
+    else{
+
+        resultado = "PERDISTE";
+
+    }
+
+    document.getElementById("usuario").innerHTML =
+    "Tu elegiste: " + usuario;
+
+    document.getElementById("maquina").innerHTML =
+    "La computadora eligio: " + maquina;
+
+    document.getElementById("resultado").innerHTML =
+    resultado;
+
+}
+
+</script>
+
+</head>
+
+<body bgcolor="#FFCCCC">
+
+<center>
+
+<h1>PIEDRA PAPEL O TIJERA</h1>
+
+<p>Selecciona una opcion</p>
+
+<button onclick="jugar('Piedra')">
+PIEDRA
+</button>
+
+<button onclick="jugar('Papel')">
+PAPEL
+</button>
+
+<button onclick="jugar('Tijera')">
+TIJERA
+</button>
+
+<br><br>
+
+<h2 id="usuario"></h2>
+
+<h2 id="maquina"></h2>
+
+<h1 id="resultado"></h1>
+
+</center>
+
+</body>
+
+</html>
